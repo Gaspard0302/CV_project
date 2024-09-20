@@ -1,0 +1,56 @@
+Gaspard Hassenforder
++44 7415 301737
+Linkedin
+hassenforder.gaspard@gmail.com
+A motivated master’s student with a strong work ethic and a strong  aptitude for the hard sciences.
+Dual French-British citizen, looking for opportunities to learn and discover more in data science. Passionate about Judo and enticed by all new technologies and their potential impact on our future.
+
+
+EDUCATION 
+Polytechnique-HEC,  Paris, France— 2023/2025
+Pursuing a Master of Science in Data Science for Business, where I am honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization. My education is enriched by applying these skills in practical business scenarios, highlighted by a comprehensive capstone project addressing real-world challenges
+
+Warwick University, Warwick, UK — 2020/2023
+Improved my problem-solving capabilities and learned mathematical concepts and understood their applications. Key modules include Topology, Multivariate Statistics, and Number Theory. Graduated with a high 2.1 degree. 
+ 
+Lycée Francais Charles de Gaulle, London, UK — 2017/2020
+Obtained with highest honours (17.02/20) for the 2020 French Baccalauréat in the scientific section (specialised in Maths, Physics and Sciences).
+
+EXPERIENCE
+Ekimetrics, Paris, FR — Data Scientist Intern
+April 2024 - September 2024
+Developed a RAG Solution to iteratively answer a Parsed hierarchical CSA questionnaire 
+Took part of a proof of concept mission, using Causality techniques to analyse youtube brand lift data
+Worked on a multi-million euro MMM project, optimising and decomposing a media budget for an international client
+
+VP & White UK Ltd, London, UK — Software Development Intern
+August  2022 - September 2022
+Developed front and back end processes for a new e-learning platform (C#, SQL, CSS, .NET)
+Created unit testing processes, tested the application, created logs of outstanding issues, and provided usage feedback.
+
+Dassault Systèmes Ltd, London, UK — Intern, Partnerships and University Recruitment Analyst
+July 2019
+Developed and presented to Dassault senior management a project analysing and mapping the existing partnerships between universities and the company with an aim to optimise university level recruitment.
+Applied the ins and outs of Computer Assisted Design (“CAD”)  software, such as Catia and SolidWorks, to understand intricate aerospace models.
+
+Altyx Financial Planning Ltd, London, UK — Intern, Client Services and Compliance Support
+June  2018 - July  2018
+Managed the client satisfaction survey via online platform SurveyMonkey and analysed the results for senior management and compliance functions. 
+Assisted a Financial Planner on the regulatory AML checks of clients. 
+Assisted and collaborated with the team on the GDPR implementation and Setup of the Clients Passwords database.
+Worked daily on various investments reporting spreadsheets for various private clients
+
+PROJECTS
+CapGemini Data Camp - 2024
+Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.
+Judo Black Belt (1st Dan), The Budokwai — 2008/2019
+With more than 11 years of experience and competing in international competitions. 
+Captain of the dojo junior judo squad for 4 years (until 2019), assisting in organising competitions. Refereed local junior (5-7 year old) competitions. Learned rigour and discipline whilst also gaining practical leadership skills 
+Mathematics tutor - 2021
+Mathematics and Statistics tutor for a pupil passing A-levels. Pupil achieved [A*] as final Mathematics grade
+
+IT & LANGUAGE  SKILLS 
+Bilingual in French and English and Intermediary level in Spanish
+Working knowledge of Microsoft Office Suite 
+High level in Python(Pandas, NumPy , scikit-learn, keras), SQL, Spark, PyTorch and moderate level in C#
+Mastering essential data science skills (Statistics, Machine Learning, Deep Learning, etc.) and applying them in business contexts, including a capstone project on real-world challenges. Engaged in industry partnerships and competitive events to enhance practical learning.
