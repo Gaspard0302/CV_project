@@ -7,10 +7,8 @@ from PIL import Image
 
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
-
-
 import openai
-# from langchain.chat_models import ChatOpenAI
+
 
 # ---- Path Settings ------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -23,15 +21,16 @@ bio_file_path = current_dir / "bio.txt"
 PAGE_TITLE = "Digital CV / Gaspard Hassenforder"
 PAGE_ICON = ":wave"
 NAME = "Gaspard Hassenforder"
-DESCRIPTION = "Data Scientist ....."
+DESCRIPTION = "Data Scientist with a strong background in data analysis, machine learning, and statistical modeling. Passionate about leveraging data to drive business decisions and enhance operational efficiency. Adept at collaborating with cross-functional teams to deliver impactful solutions."
+
 EMAIL = "hassenforder.gaspard@gmail.com"
 SOCIAL_MEDIA = {
-    "LinkedIn" : "",
-    "GitHub" : "",
-}
+    "LinkedIn" : "https://www.linkedin.com/in/gaspard-hassenforder-554431225/",
+    "GitHub" : "https://github.com/Gaspard0302"
+    }
 
 PROJECTS = {
-    "Title " : "link",
+    "CapGemini DataCamp" : "Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.",
 }                                            
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
@@ -66,7 +65,7 @@ with col2:
 
 # -----------------  Chatbot  ----------------- #
 # Set up the OpenAI key
-openai_api_key = st.text_input('Enter your OpenAI API Key and hit Enter', type="password")
+openai_api_key = st.text_input('To Ask a Chatbot about me, please enter your OpenAI API Key and hit Enter', type="password")
 openai.api_key = (openai_api_key)
 
 # load the file
@@ -74,14 +73,13 @@ def ask_bot(input_text):
     # define LLM
     llm = ChatOpenAI(
     model="gpt-4o",
-    temperature=0,
+    temperature=1,
     max_tokens=None,
     timeout=None,
     max_retries=2,
     api_key= openai_api_key
     
 )
-    
 
     # Function to read context from a text file
     def read_context_from_file(file_path):
@@ -100,7 +98,7 @@ def ask_bot(input_text):
         "You are Buddy, an AI assistant dedicated to assisting Gaspard in her job search by providing recruiters with relevant and concise information. "
         "Here is his CV {context}"
         "If you do not know the answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him. "
-        "Don't put Buddy or a breakline in the front of your answer and be concise, only one sentence. Human: {question}"
+        "Don't put Buddy or a breakline in the front of your answer and be very concise. Human: {question}"
     )
 
     # Use the chain with the read context and a question
@@ -117,7 +115,7 @@ def ask_bot(input_text):
 
 # get the user's input by calling the get_text function
 def get_text():
-    input_text = st.text_input("After providing OpenAI API Key on the sidebar, you can send your questions and hit Enter to know more about me from my AI agent, Buddy!", key="input")
+    input_text = st.text_input("You can send your questions and hit Enter to know more about me from my AI agent", key="input")
     return input_text
 
 #st.markdown("Chat With Me Now")
@@ -142,74 +140,109 @@ for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
 
 # --- EXPERIENCE & QUALIFICATIONS ---
 st.write('\n')
-st.subheader("Experience & Qulifications")
+st.subheader("Experience & Qualifications")
 st.write(
     """
-- ✔️ 7 Years expereince extracting actionable insights from data
-- ✔️ Strong hands on experience and knowledge in Python and Excel
-- ✔️ Good understanding of statistical principles and their respective applications
-- ✔️ Excellent team-player and displaying strong sense of initiative on tasks
+- ✔️ Experience in data science internships focusing on data-driven solutions and model development
+- ✔️ Strong hands-on experience and knowledge in Python, SQL, and data analysis tools
+- ✔️ Good understanding of statistical principles and machine learning applications
+- ✔️ Excellent team player with a strong sense of initiative and leadership experience
 """
 )
-
 
 # --- SKILLS ---
 st.write('\n')
 st.subheader("Hard Skills")
 st.write(
     """
-- 👩‍💻 Programming: Python (Scikit-learn, Pandas), SQL, VBA
-- 📊 Data Visulization: PowerBi, MS Excel, Plotly
-- 📚 Modeling: Logistic regression, linear regression, decition trees
-- 🗄️ Databases: Postgres, MongoDB, MySQL
+- 👩‍💻 Programming: Python (Pandas, NumPy, Scikit-learn, PyTorch), SQL, moderate knowledge of C#
+- 📊 Data Visualization: Tableau, MS Excel, Plotly
+- 📚 Modeling: Machine Learning, Deep Learning, Causality Modeling
+- 🗄️ Databases: MySQL, experience with data retrieval systems
 """
 )
 
-
-# --- WORK HISTORY ---
-st.write('\n')
-st.subheader("Work History")
+# --- EDUCATION ---
 st.write("---")
+st.write('\n')
+st.subheader("Education")
 
-# --- JOB 1
-st.write("🚧", "**Senior Data Analyst | Ross Industries**")
-st.write("02/2020 - Present")
+
+# --- DEGREE 1
+st.write("🎓", "**HEC, Paris**")
+st.write("Master in Data Science and AI for Business — 2024/2025")
 st.write(
     """
-- ► Used PowerBI and SQL to redeﬁne and track KPIs surrounding marketing initiatives, and supplied recommendations to boost landing page conversion rate by 38%
-- ► Led a team of 4 analysts to brainstorm potential marketing and sales improvements, and implemented A/B tests to generate 15% more client leads
-- ► Redesigned data model through iterations that improved predictions by 12%
+- Focused on real-world business challenges through data-driven solutions.
+- Developed skills in analyzing business issues, building and optimizing models, and understanding the societal impact of AI.
+"""
+)
+
+# --- DEGREE 2
+st.write('\n')
+st.write("🎓", "**Polytechnique, Paris**")
+st.write("Master in Data Science and AI for Business — 2023/2024")
+st.write(
+    """
+- Honed expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization.
+"""
+)
+
+# --- DEGREE 3
+st.write('\n')
+st.write("🎓", "**Lycée Francais Charles de Gaulle, London, UK**")
+st.write("French Baccalauréat (Scientific Section) — 2020")
+st.write(
+    """
+- Obtained with highest honors (17.02/20), specializing in Maths, Physics, and Sciences.
+"""
+)
+
+# --- WORK HISTORY ---
+st.write("---")
+st.write('\n')
+st.subheader("Work History")
+
+
+# --- JOB 1
+st.write("🚧", "**Data Scientist Intern | Ekimetrics**")
+st.write("April 2024 - September 2024")
+st.write(
+    """
+- ► Implemented a Retrieval Augmented Generation solution to automate Corporate Sustainability Assessment processes, significantly improving efficiency
+- ► Developed a causality model using Python to measure customer uplift from YouTube ad campaigns, providing actionable insights
+- ► Contributed to a Marketing Mix Modeling project for a major airline to optimize budget allocation and marketing ROI
 """
 )
 
 # --- JOB 2
 st.write('\n')
-st.write("🚧", "**Data Analyst | Liberty Mutual Insurance**")
-st.write("01/2018 - 02/2022")
+st.write("🚧", "**Software Development Intern | VP & White UK Ltd**")
+st.write("August 2022 - September 2022")
 st.write(
     """
-- ► Built data models and maps to generate meaningful insights from customer data, boosting successful sales eﬀorts by 12%
-- ► Modeled targets likely to renew, and presented analysis to leadership, which led to a YoY revenue increase of $300K
-- ► Compiled, studied, and inferred large amounts of data, modeling information to drive auto policy pricing
+- ► Developed front and back end processes for a new e-learning platform using C#, SQL, and .NET
+- ► Created unit testing processes and logged outstanding issues to enhance software quality
 """
 )
 
 # --- JOB 3
 st.write('\n')
-st.write("🚧", "**Data Analyst | Chegg**")
-st.write("04/2015 - 01/2018")
+st.write("🚧", "**Intern, Partnerships and University Recruitment Analyst | Dassault Systèmes**")
+st.write("July 2019")
 st.write(
     """
-- ► Devised KPIs using SQL across company website in collaboration with cross-functional teams to achieve a 120% jump in organic traﬃc
-- ► Analyzed, documented, and reported user survey results to improve customer communication processes by 18%
-- ► Collaborated with analyst team to oversee end-to-end process surrounding customers' return data
+- ► Analyzed and mapped existing university partnerships to optimize recruitment strategies
+- ► Gained hands-on experience with CAD software, enhancing understanding of intricate models
 """
 )
 
-
 # --- Projects & Accomplishments ---
+st.write("---")
 st.write('\n')
 st.subheader("Projects & Accomplishments")
-st.write("---")
-for project, link in PROJECTS.items():
-    st.write(f"[{project}]({link})")
+
+for project, explanation in PROJECTS.items():
+    st.write(f" - **{project}** :  {explanation}")
+
+    #st.write(f"[{project}]({link})")

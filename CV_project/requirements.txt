@@ -1,7 +1,4 @@
-streamlit
-langchain
-langchain-openai
-langchain-community
-langchain-core
-langchain-openai
-langchain-text-splitters 
+langchain-core==0.3.2
+langchain-openai==0.2.0
+openai==1.47.0
+streamlit==1.38.0

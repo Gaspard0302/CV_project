@@ -7,21 +7,23 @@ Dual French-British citizen, looking for opportunities to learn and discover mor
 
 
 EDUCATION 
-Polytechnique-HEC,  Paris, France— 2023/2025
-Pursuing a Master of Science in Data Science for Business, where I am honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization. My education is enriched by applying these skills in practical business scenarios, highlighted by a comprehensive capstone project addressing real-world challenges
+HEC, Paris, M2 - Master in Data Science and AI for Business — 2024/2025
+Focused on real-world business challenges through data-driven solutions, Developed skills in analysing business issues related to Data Science and AI, building and optimising models using state-of-the-art tools, and understanding their societal impact. 
 
-Warwick University, Warwick, UK — 2020/2023
-Improved my problem-solving capabilities and learned mathematical concepts and understood their applications. Key modules include Topology, Multivariate Statistics, and Number Theory. Graduated with a high 2.1 degree. 
- 
+Polytechnique, Paris, M1 - Master in Data Science and AI for Business — 2023/2024
+Honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization. 
+
 Lycée Francais Charles de Gaulle, London, UK — 2017/2020
 Obtained with highest honours (17.02/20) for the 2020 French Baccalauréat in the scientific section (specialised in Maths, Physics and Sciences).
 
 EXPERIENCE
 Ekimetrics, Paris, FR — Data Scientist Intern
 April 2024 - September 2024
-Developed a RAG Solution to iteratively answer a Parsed hierarchical CSA questionnaire 
-Took part of a proof of concept mission, using Causality techniques to analyse youtube brand lift data
-Worked on a multi-million euro MMM project, optimising and decomposing a media budget for an international client
+Implemented a Retrieval Augmented Generation (RAG) solution to assist in automating the Corporate Sustainability Assessment (CSA) questionnaire process. This significantly enhanced the efficiency of human users, reducing manual effort and increasing completion speed by leveraging relevant document retrieval and generation techniques.
+
+Developed a causality model using Python libraries EconML and DoWhy to measure customer uplift for brand awareness from Brand Lift surveys on YouTube. This model provided clear, data-driven insights into the direct effects of YouTube ad campaigns on brand awareness for a global brand.
+
+Contributed to a Marketing Mix Modeling (MMM) project for a major airline. Helping to quantify the impact of various marketing channels, enabling the airline to optimize budget allocation and improve marketing ROI.
 
 VP & White UK Ltd, London, UK — Software Development Intern
 August  2022 - September 2022
