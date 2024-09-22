@@ -22,13 +22,13 @@ This project is a Dockerized Streamlit application that showcases a digital vers
    ```
 
 2. **Build the Docker Image**:
-  ```bash
-  docker build --no-cache -t cv_streamlit_app .
-  ```
+     ```bash
+     docker build --no-cache -t cv_streamlit_app .
+     ```
 3.	**Run the Docker Container**:
-  ```
-  docker run -p 8501:8501 cv_streamlit_app
-  ```
+     ```bash
+     docker run -p 8501:8501 cv_streamlit_app
+     ```
 4. **Access the App**:
    Open your web browser and navigate to http://localhost:8501.
 
