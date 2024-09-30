@@ -72,7 +72,8 @@ openai_api_key = None
 if has_api_key:
     openai_api_key = st.text_input('Please enter your OpenAI API Key', type="password")
 else:
-    openai_api_key = os.getenv("OPENAI_API_KEY")
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
+    #openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if openai_api_key:
     openai.api_key = openai_api_key
