@@ -98,11 +98,9 @@ def ask_bot(input_text):
                 context = file.read()
             return context
 
-        # Specify the path to your context file
-        context_file_path = 'bio.txt'
 
         # Read the context from the file
-        context = read_context_from_file(context_file_path)
+        context = read_context_from_file(bio_file_path)
 
         # Create the prompt template
         prompt = PromptTemplate.from_template(
