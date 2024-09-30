@@ -50,7 +50,7 @@ profile_pic = Image.open(profile_pic)
 # --- HERO SECTION ---
 col1, col2 = st.columns(2, gap="small")
 with col1:
-     st.image(profile_pic, width=230)
+     st.image(profile_pic, width=300)
 
 with col2:
      st.title(NAME)
@@ -107,8 +107,8 @@ def ask_bot(input_text):
         prompt = PromptTemplate.from_template(
             "You are Buddy, an AI assistant dedicated to assisting Gaspard in her job search by providing recruiters with relevant and concise information. "
             "Here is his CV {context}"
-            "If you do not know the answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him. "
-            "Don't put Buddy or a breakline in the front of your answer and be very concise. Human: {question}"
+            "If you can't answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him but only if you can't answer. "
+            "Don't put Buddy or a breakline in the front of your answer and be concise. Human: {question}"
         )
 
         # Use the chain with the read context and a question
