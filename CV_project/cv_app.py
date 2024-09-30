@@ -4,11 +4,12 @@
 from pathlib import Path
 import streamlit as st
 from PIL import Image
+import os
 
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 import openai
-
+from openai import OpenAIError
 
 # ---- Path Settings ------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -64,54 +65,70 @@ with col2:
      
 
 # -----------------  Chatbot  ----------------- #
-# Set up the OpenAI key
-openai_api_key = st.text_input('To Ask a Chatbot about me, please enter your OpenAI API Key and hit Enter', type="password")
-openai.api_key = (openai_api_key)
+# Checkbox to ask if the user has an API key
+has_api_key = st.checkbox('Would you like to use your own OpenAI API Key?')
+
+openai_api_key = None
+if has_api_key:
+    openai_api_key = st.text_input('Please enter your OpenAI API Key', type="password")
+else:
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+
+if openai_api_key:
+    openai.api_key = openai_api_key
 
 # load the file
 def ask_bot(input_text):
-    # define LLM
-    llm = ChatOpenAI(
-    model="gpt-4o",
-    temperature=1,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-    api_key= openai_api_key
-    
-)
-
-    # Function to read context from a text file
-    def read_context_from_file(file_path):
-        with open(file_path, 'r') as file:
-            context = file.read()
-        return context
-
-    # Specify the path to your context file
-    context_file_path = 'bio.txt'
-
-    # Read the context from the file
-    context = read_context_from_file(context_file_path)
-
-    # Create the prompt template
-    prompt = PromptTemplate.from_template(
-        "You are Buddy, an AI assistant dedicated to assisting Gaspard in her job search by providing recruiters with relevant and concise information. "
-        "Here is his CV {context}"
-        "If you do not know the answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him. "
-        "Don't put Buddy or a breakline in the front of your answer and be very concise. Human: {question}"
+    try:
+        # define LLM
+        llm = ChatOpenAI(
+        model="gpt-4o",
+        temperature=1,
+        max_tokens=None,
+        timeout=None,
+        max_retries=2,
+        api_key= openai_api_key
+        
     )
+        
+        # Function to read context from a text file
+        def read_context_from_file(file_path):
+            with open(file_path, 'r') as file:
+                context = file.read()
+            return context
 
-    # Use the chain with the read context and a question
-    chain = prompt | llm
-    response = chain.invoke(
-        {
-            "context": context,
-            "question": input_text,
-        }
-    )
-    
-    print(f"output: {response.content}")
-    return response.content
+        # Specify the path to your context file
+        context_file_path = 'bio.txt'
+
+        # Read the context from the file
+        context = read_context_from_file(context_file_path)
+
+        # Create the prompt template
+        prompt = PromptTemplate.from_template(
+            "You are Buddy, an AI assistant dedicated to assisting Gaspard in her job search by providing recruiters with relevant and concise information. "
+            "Here is his CV {context}"
+            "If you do not know the answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him. "
+            "Don't put Buddy or a breakline in the front of your answer and be very concise. Human: {question}"
+        )
+
+        # Use the chain with the read context and a question
+        chain = prompt | llm
+        response = chain.invoke(
+            {
+                "context": context,
+                "question": input_text,
+            }
+        )
+
+        print(f"output: {response.content}")
+        return response.content
+
+    except OpenAIError as e:
+        # Handle specific OpenAI errors
+        if "insufficient funds" in str(e).lower():
+            st.error("⚠️ My OpenAI API key does not have enough credits. Please provide your own API key.", icon='⚠')
+        else:
+            st.error(f"⚠️ An error occurred: {str(e)}", icon='⚠')
 
 # get the user's input by calling the get_text function
 def get_text():
@@ -119,16 +136,16 @@ def get_text():
     return input_text
 
 #st.markdown("Chat With Me Now")
-if openai_api_key: 
-    user_input = get_text()
 
-    if user_input:
-    #text = st.text_area('Enter your questions')
-        if not openai_api_key.startswith('sk-'):
-            st.warning('⚠️Please enter your OpenAI API key on the sidebar.', icon='⚠')
-        if openai_api_key.startswith('sk-'):
-            st.info(ask_bot(user_input))
+user_input = get_text()
 
+if user_input:
+#text = st.text_area('Enter your questions')
+    if not openai_api_key.startswith('sk-'):
+        st.warning('⚠️Please enter your OpenAI API key.', icon='⚠')
+    if openai_api_key.startswith('sk-'):
+        st.info(ask_bot(user_input))
+        
 
     
     
