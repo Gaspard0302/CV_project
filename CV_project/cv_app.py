@@ -174,7 +174,7 @@ st.write(
 - 👩‍💻 Programming: Python (Pandas, NumPy, Scikit-learn, PyTorch), SQL, moderate knowledge of C#
 - 📊 Data Visualization: Tableau, MS Excel, Plotly
 - 📚 Modeling: Machine Learning, Deep Learning, Causality Modeling
-- 🗄️ Databases: MySQL, experience with data retrieval systems
+- 🗄️ Databases: PostgreSQL, experience with data retrieval systems
 """
 )
 
@@ -205,6 +205,18 @@ st.write(
 )
 
 # --- DEGREE 3
+st.write('\n')
+st.write("🎓", "**Warwick University, London, UK**")
+st.write("Bachelor in Mathematics — 2020/2023")
+st.write(
+    """
+- Improved my problem-solving capabilities and learned mathematical concepts and understood their applications. 
+- Key modules include Topology, Multivariate Statistics, and Number Theory. Graduated with a high 2.1 degree. 
+ 
+"""
+)
+
+# --- DEGREE 4
 st.write('\n')
 st.write("🎓", "**Lycée Francais Charles de Gaulle, London, UK**")
 st.write("French Baccalauréat (Scientific Section) — 2020")
