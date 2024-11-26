@@ -1,17 +1,21 @@
 Gaspard Hassenforder
 +44 7415 301737
-Linkedin
++ +33 7 66 98 52 56
+
 hassenforder.gaspard@gmail.com
 A motivated master’s student with a strong work ethic and a strong  aptitude for the hard sciences.
 Dual French-British citizen, looking for opportunities to learn and discover more in data science. Passionate about Judo and enticed by all new technologies and their potential impact on our future.
 
+Aspiring data scientist with strong foundations in machine learning, data visualization, and advanced Python programming. Dual French-British citizen eager to leverage to drive data-driven decision-making in a dynamic organisation.
 
 EDUCATION 
 HEC, Paris, M2 - Master in Data Science and AI for Business — 2024/2025
-Focused on real-world business challenges through data-driven solutions, Developed skills in analysing business issues related to Data Science and AI, building and optimising models using state-of-the-art tools, and understanding their societal impact. 
+Focused on real-world business challenges through data-driven solutions, developed skills in analysing business issues related to Data Science and AI, building and optimising models using state-of-the-art tools, and understanding their societal impact.
+Courses: Algorithmic Fairness and Interpretability, Causal Inference, ML Ops, Deep Learning, Reinforcement Learning, datavisulation for tableau, time series, ai and ethics, data for marketing, strategy and data 
 
 Polytechnique, Paris, M1 - Master in Data Science and AI for Business — 2023/2024
-Honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization. 
+Honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization.
+Key Courses: Statistics with R, Machine Learning I & II, Linear Algebra & Regression, Optimization & Deep Learning
 
 Lycée Francais Charles de Gaulle, London, UK — 2017/2020
 Obtained with highest honours (17.02/20) for the 2020 French Baccalauréat in the scientific section (specialised in Maths, Physics and Sciences).
@@ -50,6 +54,12 @@ Assisted and collaborated with the team on the GDPR implementation and Setup of 
 Worked daily on various investments reporting spreadsheets for various private clients
 
 PROJECTS
+Won first place in the On-Device AI Hackathon (November 2024): 
+Sponsored by Meta, Hugging Face, and Entrepreneur First and organised by ekimetrics. 
+Developed 'NamastAI,' a yoga assistant app integrating multiple AI models for real-time pose correction and audible feedback. 
+Demonstrated expertise in deploying, fine-tuning, and optimizing local AI models, earning recognition for both technical innovation and commercial viability.
+1st place prize was 3000 euros, 
+
 CapGemini Data Camp - 2024
 Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.
 Judo Black Belt (1st Dan), The Budokwai — 2008/2019
@@ -63,3 +73,5 @@ Bilingual in French and English and Intermediary level in Spanish
 Working knowledge of Microsoft Office Suite 
 High level in Python(Pandas, NumPy , scikit-learn, keras), SQL, Spark, PyTorch and moderate level in C#
 Mastering essential data science skills (Statistics, Machine Learning, Deep Learning, etc.) and applying them in business contexts, including a capstone project on real-world challenges. Engaged in industry partnerships and competitive events to enhance practical learning.
+• Programming Languages: Python (NumPy, Pandas, Scikit-learn, PyTorch, Keras, Seaborn, Langchain), SQL, R, Spark, C#
+• Big Data & Tools: Excel, LaTeX, Tableau, Git, Docker, Dataiku, Databricks, MLflow

@@ -31,7 +31,9 @@ SOCIAL_MEDIA = {
     }
 
 PROJECTS = {
+    "On-Device AI Hackathon (November 2024)" : "Won First place at a hackathon sponsored by Meta, Hugging Face, Scalaway, and Entrepreneur First. Developed 'NamastAI,' a yoga assistant app integrating multiple AI models for real-time pose correction and audible feedback. Demonstrated expertise in deploying, fine-tuning, and optimizing local AI models, earning recognition for both technical innovation and commercial viability.",
     "CapGemini DataCamp" : "Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.",
+    
 }                                            
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
@@ -189,8 +191,8 @@ st.write("🎓", "**HEC, Paris**")
 st.write("Master in Data Science and AI for Business — 2024/2025")
 st.write(
     """
-- Focused on real-world business challenges through data-driven solutions.
-- Developed skills in analyzing business issues, building and optimizing models, and understanding the societal impact of AI.
+- Focused on real-world business challenges through data-driven solutions, developed skills in analysing business issues related to Data Science and AI, building and optimising models using state-of-the-art tools, and understanding their societal impact.
+- Key Courses: Algorithmic Fairness and Interpretability, Causal Inference, ML Ops, Reinforcement Learning
 """
 )
 
