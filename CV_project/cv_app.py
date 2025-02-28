@@ -31,9 +31,13 @@ SOCIAL_MEDIA = {
     }
 
 PROJECTS = {
+    "Recreating Apple Genmoji": "Finetuned an image generation model (SDXL Lightning) with emojis to recreate the Apple feature called GenMoji introduced in iOS 18, enabling users to generate personalized emoji combinations based on their preferences.",
     "On-Device AI Hackathon (November 2024)" : "Won First place at a hackathon sponsored by Meta, Hugging Face, Scalaway, and Entrepreneur First. Developed 'NamastAI,' a yoga assistant app integrating multiple AI models for real-time pose correction and audible feedback. Demonstrated expertise in deploying, fine-tuning, and optimizing local AI models, earning recognition for both technical innovation and commercial viability.",
     "CapGemini DataCamp" : "Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.",
-    
+    "Predicting Customer Churn":"Collaborated on a BGC X strategy project to develop a model for predicting customer churn and estimating customer lifetime value based on past spending behaviour. Leveraged these insights to design an optimal strategy for the sales team, including personalised email campaigns using generative AI and targeted calls. The approach focused on preventing churn by tailoring actions to client relationships, customer difficulty levels, and lifetime value.",
+    "Modelling Mixte Marketing":"Analysed L'Oréal data to determine the optimal marketing budget allocation across various sales channels. The project focused on identifying the most effective strategies to maximise ROI and improve overall marketing efficiency.",
+    "Optimising Client invitation list":"Worked on a past case from Eleven Consulting to optimise client invitation lists for corporate events organised by a major luxury brand. Utilised causality techniques, including double machine learning, to calculate the uplift in sales resulting from event invitations. Developed a platform that identifies the best clients to invite based on event characteristics and the desired number of attendees, maximising sales impact.",
+    "Optimising Retail Performance in Shopping Malls":"Analysed data from Unibail-Rodamco-Westfield, covering over 20 malls across Europe, including store sales and customer foot traffic. Provided actionable recommendations by examining visitor flow, store performance, and retail trends. Proposed strategies to optimise tenant mix, enhancing foot traffic, sales, and overall revenue.",
 }                                            
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
@@ -179,7 +183,17 @@ st.write(
 - 🗄️ Databases: PostgreSQL, experience with data retrieval systems
 """
 )
+# --- Projects & Accomplishments ---
+st.write("---")
+st.write('\n')
+st.subheader("Projects & Accomplishments")
 
+for project, explanation in PROJECTS.items():
+    st.write(f" - **{project}** :  {explanation}")
+
+    #st.write(f"[{project}]({link})")
+    
+    
 # --- EDUCATION ---
 st.write("---")
 st.write('\n')
@@ -267,12 +281,4 @@ st.write(
 """
 )
 
-# --- Projects & Accomplishments ---
-st.write("---")
-st.write('\n')
-st.subheader("Projects & Accomplishments")
 
-for project, explanation in PROJECTS.items():
-    st.write(f" - **{project}** :  {explanation}")
-
-    #st.write(f"[{project}]({link})")
