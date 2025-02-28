@@ -85,11 +85,11 @@ with api_key_col2:
 # Function to ask the bot
 def ask_bot(input_text, api_key):
     try:
-        # define LLM using langchain_openai
+        # define LLM using langchain_openai with minimal parameters
         llm = ChatOpenAI(
-            model="gpt-4o",
+            model_name="gpt-4o",  # Use model_name instead of model
             temperature=1,
-            api_key=api_key
+            openai_api_key=api_key  # Use openai_api_key instead of api_key
         )
 
         # Function to read context from a text file
@@ -121,13 +121,7 @@ def ask_bot(input_text, api_key):
         return response.content
 
     except Exception as e:
-        error_msg = str(e).lower()
-        if "insufficient funds" in error_msg or "billing" in error_msg:
-            return "⚠️ The API key doesn't have enough credits. Please provide a different API key."
-        elif "invalid api key" in error_msg or "invalid_api_key" in error_msg:
-            return "⚠️ Invalid API key. Please check your API key and try again."
-        else:
-            return f"⚠️ An error occurred: {str(e)}"
+        return f"⚠️ An error occurred: {str(e)}"
 
 # Get user input
 user_input = st.text_input("You can send your questions and hit Enter to know more about me from my AI agent", key="user_question")
