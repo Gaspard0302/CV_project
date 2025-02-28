@@ -2,9 +2,8 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import os
-
-from langchain_core.prompts import PromptTemplate
-from langchain_openai import ChatOpenAI
+import requests
+import json
 
 # ---- Path Settings ------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -85,13 +84,6 @@ with api_key_col2:
 # Function to ask the bot
 def ask_bot(input_text, api_key):
     try:
-        # define LLM using langchain_openai with minimal parameters
-        llm = ChatOpenAI(
-            model_name="gpt-4o",  # Use model_name instead of model
-            temperature=1,
-            openai_api_key=api_key  # Use openai_api_key instead of api_key
-        )
-
         # Function to read context from a text file
         def read_context_from_file(file_path):
             with open(file_path, 'r') as file:
@@ -101,28 +93,40 @@ def ask_bot(input_text, api_key):
         # Read the context from the file
         context = read_context_from_file(bio_file_path)
 
-        # Create the prompt template
-        prompt = PromptTemplate.from_template(
-            "You are Buddy, an AI assistant dedicated to assisting Gaspard in his job search by providing recruiters with relevant and concise information. "
-            "Here is his CV {context}"
-            "If you can't answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him but only if you can't answer. "
-            "Don't put Buddy or a breakline in the front of your answer and be concise. Human: {question}"
+        # Create the prompt
+        prompt = f"""You are Buddy, an AI assistant dedicated to assisting Gaspard in his job search by providing recruiters with relevant and concise information.
+        Here is his CV {context}
+        If you can't answer, politely admit it and let recruiters know how to contact Gaspard to get more information directly from him but only if you can't answer.
+        Don't put Buddy or a breakline in the front of your answer and be concise. Human: {input_text}"""
+
+        # Make a direct API call to OpenAI
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+
+        payload = {
+            "model": "gpt-4o",
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 1
+        }
+
+        response = requests.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers=headers,
+            data=json.dumps(payload)
         )
 
-        # Use the chain with the read context and a question
-        chain = prompt | llm
-        response = chain.invoke(
-            {
-                "context": context,
-                "question": input_text,
-            }
-        )
-
-        return response.content
+        if response.status_code == 200:
+            return response.json()["choices"][0]["message"]["content"]
+        else:
+            error_message = response.json().get("error", {}).get("message", "Unknown error")
+            return f"⚠️ API Error: {error_message}"
 
     except Exception as e:
         return f"⚠️ An error occurred: {str(e)}"
-
+    
+    
 # Get user input
 user_input = st.text_input("You can send your questions and hit Enter to know more about me from my AI agent", key="user_question")
 
