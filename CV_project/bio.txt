@@ -68,6 +68,14 @@ Captain of the dojo junior judo squad for 4 years (until 2019), assisting in org
 Mathematics tutor - 2021
 Mathematics and Statistics tutor for a pupil passing A-levels. Pupil achieved [A*] as final Mathematics grade
 
+"Recreating Apple Genmoji": "Finetuned an image generation model (SDXL Lightning) with emojis to recreate the Apple feature called GenMoji introduced in iOS 18, enabling users to generate personalized emoji combinations based on their preferences.",
+
+"Modelling Mixte Marketing": "Analysed L'Oréal data to determine the optimal marketing budget allocation across various sales channels. The project focused on identifying the most effective strategies to maximise ROI and improve overall marketing efficiency.",
+"Optimising Client invitation list": "Worked on a past case from Eleven Consulting to optimise client invitation lists for corporate events organised by a major luxury brand. Utilised causality techniques, including double machine learning, to calculate the uplift in sales resulting from event invitations. Developed a platform that identifies the best clients to invite based on event characteristics and the desired number of attendees, maximising sales impact.",
+"Optimising Retail Performance in Shopping Malls": "Analysed data from Unibail-Rodamco-Westfield, covering over 20 malls across Europe, including store sales and customer foot traffic. Provided actionable recommendations by examining visitor flow, store performance, and retail trends. Proposed strategies to optimise tenant mix, enhancing foot traffic, sales, and overall revenue.",
+
+
+Currently working on my master's dissertation about how the structure and hierarchy affects permormance in multi agent systems, especially in coding using benchmarks lile swe bench
 IT & LANGUAGE  SKILLS 
 Bilingual in French and English and Intermediary level in Spanish
 Working knowledge of Microsoft Office Suite 
