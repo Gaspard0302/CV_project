@@ -5,8 +5,6 @@ import os
 
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
-import openai
-from openai import OpenAIError
 
 # ---- Path Settings ------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -77,19 +75,21 @@ with api_key_col2:
         openai_api_key = st.text_input('Enter your OpenAI API Key', type="password",
                                       help="Your API key starts with 'sk-'")
     else:
-        openai_api_key = st.secrets["OPENAI_API_KEY"]
+        # Use the secret key from Streamlit
+        try:
+            openai_api_key = st.secrets["OPENAI_API_KEY"]
+        except:
+            openai_api_key = None
+            st.warning("⚠️ No API key found in secrets. Please provide your own API key.", icon="⚠️")
 
 # Function to ask the bot
-def ask_bot(input_text):
+def ask_bot(input_text, api_key):
     try:
-        # define LLM
+        # define LLM using langchain_openai
         llm = ChatOpenAI(
             model="gpt-4o",
             temperature=1,
-            max_tokens=None,
-            timeout=None,
-            max_retries=2,
-            api_key=openai_api_key
+            api_key=api_key
         )
 
         # Function to read context from a text file
@@ -124,7 +124,7 @@ def ask_bot(input_text):
         error_msg = str(e).lower()
         if "insufficient funds" in error_msg or "billing" in error_msg:
             return "⚠️ The API key doesn't have enough credits. Please provide a different API key."
-        elif "invalid api key" in error_msg:
+        elif "invalid api key" in error_msg or "invalid_api_key" in error_msg:
             return "⚠️ Invalid API key. Please check your API key and try again."
         else:
             return f"⚠️ An error occurred: {str(e)}"
@@ -140,7 +140,7 @@ if user_input:
     else:
         # Get response from bot
         with st.spinner('Getting response...'):
-            response = ask_bot(user_input)
+            response = ask_bot(user_input, openai_api_key)
             st.info(response)
 
 # --- SOCIAL LINKS ---
