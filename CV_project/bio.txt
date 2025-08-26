@@ -1,85 +1,88 @@
-Gaspard Hassenforder
-+44 7415 301737
-+ +33 7 66 98 52 56
+GASPARD HASSENFORDER - COMPREHENSIVE CV
 
-hassenforder.gaspard@gmail.com
-A motivated master’s student with a strong work ethic and a strong  aptitude for the hard sciences.
-Dual French-British citizen, looking for opportunities to learn and discover more in data science. Passionate about Judo and enticed by all new technologies and their potential impact on our future.
+PERSONAL INFO:
+- Email: {EMAIL}
+- Phone: +33 7 66 98 52 56
+- Dual French-British citizen
+- Bilingual in French and English, intermediate Spanish
+- Location: Paris, France
 
-Aspiring data scientist with strong foundations in machine learning, data visualization, and advanced Python programming. Dual French-British citizen eager to leverage to drive data-driven decision-making in a dynamic organisation.
+PROFESSIONAL SUMMARY:
+Aspiring data scientist and AI engineer with strong foundations in machine learning, multi-agent systems, and advanced Python programming. Passionate about leveraging AI to drive data-driven decision-making and automate complex business processes. Experience in consultancy, RAG systems, causality modeling, and marketing mix modeling.
 
-EDUCATION 
-HEC, Paris, M2 - Master in Data Science and AI for Business — 2024/2025
-Focused on real-world business challenges through data-driven solutions, developed skills in analysing business issues related to Data Science and AI, building and optimising models using state-of-the-art tools, and understanding their societal impact.
-Courses: Algorithmic Fairness and Interpretability, Causal Inference, ML Ops, Deep Learning, Reinforcement Learning, datavisulation for tableau, time series, ai and ethics, data for marketing, strategy and data 
+CURRENT EXPERIENCE:
+Veltys (Strategy Consulting), Paris - AI Engineer Consultant (April – September 2025)
+• Designed and developed a multi-agent AI system to automate the end-to-end workflow for consultancy proposals and company research
+• The platform integrates a knowledge graph with custom agents to surface relevant data, reducing administrative time by half
+• Implemented a Google Cloud database architecture, automating data ingestion and building a chatbot querying tool connected to BigQuery
+• Enabled consultants to focus on high-value strategy work by eliminating repetitive research tasks
 
-Polytechnique, Paris, M1 - Master in Data Science and AI for Business — 2023/2024
-Honing my expertise in key disciplines including Statistics, Machine Learning, Database Management, Deep Learning, and Optimization.
-Key Courses: Statistics with R, Machine Learning I & II, Linear Algebra & Regression, Optimization & Deep Learning
+PREVIOUS EXPERIENCE:
+Ekimetrics, Paris - Data Scientist Intern (April 2024 - September 2024)
+• Implemented a Retrieval Augmented Generation (RAG) solution to automate Corporate Sustainability Assessment (CSA) questionnaire process for S&P Global ESG evaluation
+• Developed causality models using Python (EconML, DoWhy) to measure customer uplift for YouTube Brand Lift campaigns for a global brand
+• Contributed to Marketing Mix Modeling (MMM) project for a major airline to optimize budget allocation and improve marketing ROI
+• Worked with unstructured questionnaires, PDF parsing, and citation-based answer generation
 
-Lycée Francais Charles de Gaulle, London, UK — 2017/2020
-Obtained with highest honours (17.02/20) for the 2020 French Baccalauréat in the scientific section (specialised in Maths, Physics and Sciences).
+VP & White UK Ltd, London - Software Development Intern (August 2022 - September 2022)
+• Developed front and back-end processes for e-learning platform using C#, SQL, CSS, .NET
+• Created unit testing processes and provided comprehensive usage feedback
 
-EXPERIENCE
-Ekimetrics, Paris, FR — Data Scientist Intern
-April 2024 - September 2024
-Implemented a Retrieval Augmented Generation (RAG) solution to assist in automating the Corporate Sustainability Assessment (CSA) questionnaire process. This significantly enhanced the efficiency of human users, reducing manual effort and increasing completion speed by leveraging relevant document retrieval and generation techniques.
-more info about project: "The first project I was assigned involved developing a solution to automatically fill out an ESG questionnaire with accurate, sourced data. Additionally, we faced the challenge of enabling a model to process an unstructured questionnaire, consisting of various types of questions, which might be presented in a non-standard tabular format.
-To achieve this, we first needed to parse the PDF questionnaire containing the questions. We then utilized a Retrieval-Augmented Generation (RAG) model to leverage a large language model (LLM) to automatically answer the questions, while citing its sources.
-The client is required to complete this questionnaire annually as part of the S&P Global's Corporate Sustainability Assessment (CSA), which evaluates companies' sustainability performance. The scores generated from this assessment are critical factors in determining inclusion in the Dow Jones Sustainability Indices (DJSI) and the S&P Global ESG Indices. It covers over 13,000 companies worldwide, and measures a company's performance on a wide range of industry-specific economic, environmental and social criteria. Companies are assessed via sector-specific questionnaires, covering around 23 sustainability topics and 110 questions in total. Scores range from 0 to 100, with percentile rankings for financially relevant sustainability criteria. The CSA is used by investors and corporations to assess the sustainability and reputation of participating companies. Over 3,500 companies participated in the CSA in 2023, marking its 25th evaluation cycle.
-In the context of evaluating ad campaign effectiveness, Brand Lift data is a crucial tool for understanding how ads influence key brand metrics. Once your ad campaigns commence, Google integrates Brand Lift surveys into YouTube videos that viewers watch.So instead of ads, sometimes there are surveys asking you questions like “do you remember seeing and ad for any of the following brands recently” , “For which of the following brands do you have a positive opinion of” or “How likely are you to recommend this brand to a friend or colleague”. These surveys target two distinct groups: those who have seen the ad and those who were eligible to see them but did not. This approach allows for a comparative analysis between the exposed and non-exposed groups, helping to measure the true impact of your ads on brand metrics such as ad recall, brand awareness, and consideration.
-The Brand Lift measurement data provides several metrics that offer insights into the performance of ad campaigns. Key metrics include the number of "Lifted Users," who are users that show a positive shift in brand perception due to ad exposure, and "Cost per Lifted User," which indicates the cost associated with each user who demonstrates increased engagement with the brand.The metrics we will be using as our target variable in our models will be "Absolute Brand Lift," reflecting the overall increase in brand metrics due to the campaign, "Headroom Brand Lift," which estimates the additional lift potential if the campaign reached more users, and "Relative Brand Lift" which  compares the increase in brand metrics between the exposed and baseline groups.
-Additionally, the dataset provided by Google includes valuable population metrics such as device type, age, gender, and country, as well as survey-relevant metrics like the number of responses. This will allow us to filter out rows that might not be statistically significant. For example, if a sample size is too small, the brand lift measured for a brand by people using a certain device could skew the results.
-"
+Dassault Systèmes Ltd, London - Partnerships and University Recruitment Analyst Intern (July 2019)
+• Analyzed and mapped university partnerships to optimize recruitment strategies
+• Gained hands-on experience with CAD software (Catia, SolidWorks) for aerospace models
 
-Developed a causality model using Python libraries EconML and DoWhy to measure customer uplift for brand awareness from Brand Lift surveys on YouTube. This model provided clear, data-driven insights into the direct effects of YouTube ad campaigns on brand awareness for a global brand.
-more info about project: "We were engaged by a global corporation that advertises on YouTube in nearly every country. With a vast array of ads for various products, they generate a significant amount of data. While they have been analyzing ad performance on a market-by-market basis and potentially on an ad-by-ad basis, our objective is to examine global brand awareness and determine which types of YouTube ads are most effective for their products and audience."
-Contributed to a Marketing Mix Modeling (MMM) project for a major airline. Helping to quantify the impact of various marketing channels, enabling the airline to optimize budget allocation and improve marketing ROI.
+EDUCATION:
+HEC, Paris - Master in Data Science and AI for Business (2024/2025)
+• Key Courses: Algorithmic Fairness and Interpretability, Causal Inference, ML Ops, Deep Learning, Reinforcement Learning, AI Ethics, Strategy and Data
+• Currently writing master's dissertation on structure and hierarchy effects in multi-agent systems for coding benchmarks like SWE-Bench
 
-VP & White UK Ltd, London, UK — Software Development Intern
-August  2022 - September 2022
-Developed front and back end processes for a new e-learning platform (C#, SQL, CSS, .NET)
-Created unit testing processes, tested the application, created logs of outstanding issues, and provided usage feedback.
+Polytechnique, Paris - Master in Data Science and AI for Business (2023/2024)
+• Key Courses: Statistics with R, Machine Learning I & II, Linear Algebra & Regression, Optimization & Deep Learning
 
-Dassault Systèmes Ltd, London, UK — Intern, Partnerships and University Recruitment Analyst
-July 2019
-Developed and presented to Dassault senior management a project analysing and mapping the existing partnerships between universities and the company with an aim to optimise university level recruitment.
-Applied the ins and outs of Computer Assisted Design (“CAD”)  software, such as Catia and SolidWorks, to understand intricate aerospace models.
+Warwick University, London - Bachelor in Mathematics (2020/2023)
+• High 2.1 degree with modules in Topology, Multivariate Statistics, Number Theory
 
-Altyx Financial Planning Ltd, London, UK — Intern, Client Services and Compliance Support
-June  2018 - July  2018
-Managed the client satisfaction survey via online platform SurveyMonkey and analysed the results for senior management and compliance functions. 
-Assisted a Financial Planner on the regulatory AML checks of clients. 
-Assisted and collaborated with the team on the GDPR implementation and Setup of the Clients Passwords database.
-Worked daily on various investments reporting spreadsheets for various private clients
+Lycée Francais Charles de Gaulle, London - French Baccalauréat Scientific Section (2020)
+• Graduated with highest honors (17.02/20), specialized in Maths, Physics, and Sciences
 
-PROJECTS
-Won first place in the On-Device AI Hackathon (November 2024): 
-Sponsored by Meta, Hugging Face, and Entrepreneur First and organised by ekimetrics. 
-Developed 'NamastAI,' a yoga assistant app integrating multiple AI models for real-time pose correction and audible feedback. 
-Demonstrated expertise in deploying, fine-tuning, and optimizing local AI models, earning recognition for both technical innovation and commercial viability.
-1st place prize was 3000 euros, 
+MAJOR ACHIEVEMENTS & PROJECTS:
+🏆 Won First Place - On-Device AI Hackathon (November 2024)
+• Sponsored by Meta, Hugging Face, Scalaway, and Entrepreneur First
+• Developed 'NamastAI' yoga assistant app with real-time pose correction and audible feedback
+• Prize: €3,000 + recognition for technical innovation and commercial viability
 
-CapGemini Data Camp - 2024
-Contributed to a team project analysing customer feedback via sentiment analysis, utilising BERT and GPT-3.5 for data scraped from Trustpilot. Enhanced client's customer satisfaction through actionable insights derived from advanced NLP techniques.
-Judo Black Belt (1st Dan), The Budokwai — 2008/2019
-With more than 11 years of experience and competing in international competitions. 
-Captain of the dojo junior judo squad for 4 years (until 2019), assisting in organising competitions. Refereed local junior (5-7 year old) competitions. Learned rigour and discipline whilst also gaining practical leadership skills 
-Mathematics tutor - 2021
-Mathematics and Statistics tutor for a pupil passing A-levels. Pupil achieved [A*] as final Mathematics grade
+🔬 Research Paper: "The Hybridization of Consultancy Work"
+• Designed sophisticated human-AI partnership system with hierarchical multi-agent architecture
+• Integrated dynamic knowledge graph to automate research-intensive proposal generation
+• Projected 62% reduction in proposal creation time through specialized AI agents
+• Demonstrates expertise in agent collaboration, knowledge graph schemas, and data pipelines
 
-"Recreating Apple Genmoji": "Finetuned an image generation model (SDXL Lightning) with emojis to recreate the Apple feature called GenMoji introduced in iOS 18, enabling users to generate personalized emoji combinations based on their preferences.",
+📱 Recreating Apple GenMoji
+• Fine-tuned SDXL Lightning image generation model with emoji datasets
+• Recreated iOS 18 GenMoji feature for personalized emoji generation
 
-"Modelling Mixte Marketing": "Analysed L'Oréal data to determine the optimal marketing budget allocation across various sales channels. The project focused on identifying the most effective strategies to maximise ROI and improve overall marketing efficiency.",
-"Optimising Client invitation list": "Worked on a past case from Eleven Consulting to optimise client invitation lists for corporate events organised by a major luxury brand. Utilised causality techniques, including double machine learning, to calculate the uplift in sales resulting from event invitations. Developed a platform that identifies the best clients to invite based on event characteristics and the desired number of attendees, maximising sales impact.",
-"Optimising Retail Performance in Shopping Malls": "Analysed data from Unibail-Rodamco-Westfield, covering over 20 malls across Europe, including store sales and customer foot traffic. Provided actionable recommendations by examining visitor flow, store performance, and retail trends. Proposed strategies to optimise tenant mix, enhancing foot traffic, sales, and overall revenue.",
+🎯 CapGemini DataCamp (2024)
+• Team project analyzing customer feedback via sentiment analysis using BERT and GPT-3.5
+• Scraped Trustpilot data to enhance client satisfaction through NLP insights
 
+💼 Business Strategy Projects:
+• Customer Churn Prediction (BGC X): Developed models for churn prediction and customer lifetime value
+• L'Oréal Marketing Mix Analysis: Optimized budget allocation across sales channels
+• Luxury Brand Event Optimization (Eleven Consulting): Used causality techniques and double machine learning for client invitation optimization
+• Unibail-Rodamco-Westfield Retail Analysis: Analyzed 20+ European malls for performance optimization
 
-Currently working on my master's dissertation about how the structure and hierarchy affects permormance in multi agent systems, especially in coding using benchmarks lile swe bench
-IT & LANGUAGE  SKILLS 
-Bilingual in French and English and Intermediary level in Spanish
-Working knowledge of Microsoft Office Suite 
-High level in Python(Pandas, NumPy , scikit-learn, keras), SQL, Spark, PyTorch and moderate level in C#
-Mastering essential data science skills (Statistics, Machine Learning, Deep Learning, etc.) and applying them in business contexts, including a capstone project on real-world challenges. Engaged in industry partnerships and competitive events to enhance practical learning.
-• Programming Languages: Python (NumPy, Pandas, Scikit-learn, PyTorch, Keras, Seaborn, Langchain), SQL, R, Spark, C#
-• Big Data & Tools: Excel, LaTeX, Tableau, Git, Docker, Dataiku, Databricks, MLflow
+TECHNICAL SKILLS:
+• Programming: Python (Pandas, NumPy, Scikit-learn, PyTorch, Keras, Langchain), SQL, R, Spark, C#
+• AI/ML: Machine Learning, Deep Learning, Multi-Agent Systems, RAG, Causality Modeling, NLP
+• Cloud & Tools: Google Cloud, BigQuery, Docker, MLflow, Databricks, Dataiku, Git
+• Data Visualization: Tableau, Plotly, Seaborn
+• Databases: PostgreSQL, BigQuery
+
+OTHER ACHIEVEMENTS:
+• Judo Black Belt (1st Dan) - 11+ years experience, international competitions, team captain for 4 years
+• Mathematics Tutor - Helped A-level student achieve A* grade
+• Multilingual: Bilingual French/English, intermediate Spanish
+
+INTERESTS:
+Passionate about judo, new technologies, AI ethics, and the future impact of AI on society and business processes.
