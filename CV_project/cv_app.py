@@ -298,14 +298,46 @@ st.subheader("Papers & Thoughts")
 st.write("A curated list of research papers that have shaped my thinking in AI and data science.")
 
 PAPERS = {
-    "Hierarchical Reasoning Model)": {
+    "Hierarchical Reasoning Model": {
         "link": "https://arxiv.org/abs/2506.21734",
         "thoughts": """
-        This paper is foundational, introducing the Transformer architecture which underpins nearly all modern LLMs.
-        My key takeaway was how self-attention mechanisms allow the model to weigh the importance of different words in a sequence,
-        leading to a massive leap in understanding context for tasks like translation and summarization. It completely shifted the paradigm from RNNs to parallelizable attention models.
+        The **Hierarchical Reasoning Model (HRM)** paper is one of the most intriguing pieces of research I’ve encountered lately. The idea of leveraging a brain-inspired architecture with two interconnected recurrent modules—one for high-level, abstract reasoning and another for detailed, rapid computations—feels like a significant departure from the current trend of scaling up transformer models. It’s refreshing to see RNNs making a comeback, especially with each cell incorporating transformer-based attention mechanisms.
+
+        What stands out the most is how HRM achieves such strong performance with only **27 million parameters**, outperforming much larger models like o3 and Grok4 on the ARC-AGI benchmark. Its ability to solve complex Sudoku puzzles and navigate mazes perfectly—tasks where traditional LLMs often fail—is impressive. However, I do wonder if the benchmarks used are somewhat tailored to highlight HRM’s strengths, as real-world problems tend to be far more unstructured and open-ended.
+
+        Despite its strengths, HRM has notable limitations. The model’s non-autoregressive nature means it can only process fixed-size grids as input and output, making it less versatile for general-purpose tasks like text generation or open-ended reasoning. Additionally, the reliance on a token to specify the problem type within the input feels like a constraint that limits its applicability in more dynamic, real-world scenarios.
+
+        The **ARC Prize’s independent analysis** provided a more grounded perspective on HRM’s performance. While the model performs well on ARC-AGI-1, its accuracy plummets to just **2% on the more challenging ARC-AGI-2 benchmark**. This suggests that HRM’s reasoning capabilities may not generalize as well as initially thought. Furthermore, the analysis revealed that much of HRM’s success can be attributed to **iterative refinement** rather than the hierarchical architecture itself. In fact, a standard transformer with similar parameters can achieve comparable results, which is somewhat underwhelming given the initial hype.
+
+        Another point of concern is HRM’s reliance on **puzzle_id embeddings**, which means it can’t generalize to new tasks it hasn’t encountered during training. This is a significant limitation if we’re considering HRM as a step toward AGI. Additionally, while the paper highlights the use of 1,000 augmentations per task, the analysis shows that similar performance can be achieved with just 30-300 augmentations, suggesting that some of the computational overhead might be unnecessary.
+
+        Overall, HRM is a fascinating development in AI research. It challenges the notion that bigger models are inherently better and introduces a compelling brain-inspired design. However, the critical analysis reveals that its performance gains may not be as revolutionary as initially claimed. It’s still an exciting direction, and I’m curious to see how this architecture evolves—perhaps in combination with other techniques like diffusion models—to address its current limitations.
         """
     },
+     "Muon Clip Optimizer": {
+        "link": "https://arxiv.org/abs/2507.20534",  # Actual link to the paper
+        "thoughts": """
+        The introduction of the **Kimi K2 model** by Moonshot AI showcases some truly groundbreaking advancements in AI model optimization and architecture design. At its core, Kimi K2 is a massive 1 trillion parameter model with 32 billion active parameters, which briefly held the title of the state-of-the-art open-source non-reasoning model. 
+
+        ### **Muon Clip Optimizer**
+        One of the standout innovations in Kimi K2 is the use of the **Muon Clip Optimizer**. This optimizer addresses a common issue in deep learning: loss spikes during training. Unlike traditional optimizers like Adam, which can overshoot and cause instability, the Muon Clip Optimizer introduces a mechanism to pause and adjust momentum dynamically. This results in a more stable descent through the loss landscape and significantly reduces training time and computational cost by up to 35%.
+
+        - **Adaptive Momentum Adjustment**: By pausing to adjust the direction and magnitude of updates, the Muon optimizer prevents the overshooting problem common in Adam. This leads to more stable and efficient training.
+        - **QK Clip Innovation**: Initially, the Muon optimizer faced challenges at scale, where outliers in the query and key norms would cause instability. The introduction of the QK Clip addressed this by clipping these outliers, thereby stabilizing training and making it viable for large-scale models like Kimi K2.
+
+        ### **Architectural Innovations**
+        - Moonshot AI made several notable modifications to the DeepSeek V3 architecture in Kimi K2:
+          - Increased the number of experts per layer by 50% without changing the number of active parameters per token, leveraging a new sparsity scaling law.
+          - Reduced the number of attention heads from 128 to 64, significantly cutting down on parameters but maintaining performance with only a 2% degradation in quality.
+          - Simplified the routing mechanism by removing expert grouping, which became unnecessary at the trillion parameter scale where each GPU holds a single expert.
+
+        ### **Impact and Implications**
+        The advancements in Kimi K2 and the introduction of the Muon Clip Optimizer represent a significant leap in training efficiency and stability for large-scale AI models. The ability to train models with fewer loss spikes and greater computational efficiency opens new avenues for developing more powerful models. Additionally, the innovations in model architecture and optimization techniques demonstrated by Moonshot AI could influence future research and development in the field.
+
+        Overall, the Kimi K2 and its associated technologies provide valuable insights that may shape the future trajectory of AI model training and optimization. It is thanks to these open source models and the work they do and share openly that opne source AI is able to keep up with the closed source models and drives innovation.
+        """
+    }
+    
 }
 
 for title, data in PAPERS.items():
