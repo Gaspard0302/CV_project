@@ -116,17 +116,11 @@ with st.sidebar:
         # Check if API key is available
         if "OPENAI_API_KEY" in st.secrets:
             try:
-                # Try the new OpenAI client initialization (v1.0+)
+                # Use the new OpenAI client initialization (v1.0+)
                 client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
                 api_available = True
-            except TypeError as e:
-                # Fallback for older versions
-                if "proxies" in str(e):
-                    st.warning("Using legacy OpenAI client initialization")
-                    openai.api_key = st.secrets["OPENAI_API_KEY"]
-                    api_available = True
-                else:
-                    raise e
+            except Exception as e:
+                st.error(f"Error initializing OpenAI client: {str(e)}")
         else:
             st.error("⚠️ OpenAI API key not configured. Add it to your Streamlit secrets.")
     except ImportError:
@@ -167,36 +161,25 @@ with st.sidebar:
             suggest contacting Gaspard at {EMAIL}."""
 
             try:
-                # Check which client initialization method worked
-                if hasattr(openai, 'OpenAI') and client is not None:
-                    # New client (v1.0+)
-                    stream = client.chat.completions.create(
-                        model="gpt-4o-mini",
-                        messages=[{"role": "system", "content": system_prompt}] + 
-                                 [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
-                        stream=True,
-                    )
-                    
-                    # Stream the response with typewriter effect
-                    response = st.write_stream(stream)
-                else:
-                    # Legacy client (pre-v1.0)
-                    response = openai.ChatCompletion.create(
-                        model="gpt-4o-mini",
-                        messages=[{"role": "system", "content": system_prompt}] + 
-                                 [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
-                    )
-                    response = response.choices[0].message.content
-                    st.write(response)
+                # Use the new OpenAI API format
+                response = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[{"role": "system", "content": system_prompt}] + 
+                             [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
+                    stream=True,
+                )
+                
+                # Stream the response with typewriter effect
+                full_response = st.write_stream(response)
                 
             except Exception as e:
-                response = f"Error: {str(e)}. Please contact Gaspard at {EMAIL}."
-                st.write(response)
+                full_response = f"Error: {str(e)}. Please contact Gaspard at {EMAIL}."
+                st.write(full_response)
                 # Print detailed error for debugging
                 st.error(f"Detailed error: {traceback.format_exc()}")
 
         # Add assistant response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": response})
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
 
     # Add clear chat button
     if st.session_state.messages:
