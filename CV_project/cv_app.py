@@ -2,6 +2,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import os
+import traceback
 
 # ---- Path Settings ------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -106,20 +107,32 @@ with st.sidebar:
     st.write("Ask anything about Gaspard's experience, skills, or projects!")
     
     # Initialize OpenAI
+    api_available = False
+    client = None
+    
     try:
         import openai
+        
+        # Check if API key is available
         if "OPENAI_API_KEY" in st.secrets:
-            client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-            api_available = True
+            try:
+                # Try the new OpenAI client initialization (v1.0+)
+                client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+                api_available = True
+            except TypeError as e:
+                # Fallback for older versions
+                if "proxies" in str(e):
+                    st.warning("Using legacy OpenAI client initialization")
+                    openai.api_key = st.secrets["OPENAI_API_KEY"]
+                    api_available = True
+                else:
+                    raise e
         else:
-            st.error("⚠️ OpenAI API key not configured.")
-            api_available = False
+            st.error("⚠️ OpenAI API key not configured. Add it to your Streamlit secrets.")
     except ImportError:
-        st.error("⚠️ OpenAI library not installed.")
-        api_available = False
+        st.error("⚠️ OpenAI library not installed. Add 'openai' to your requirements.txt.")
     except Exception as e:
-        st.error(f"⚠️ Error: {str(e)}")
-        api_available = False
+        st.error(f"⚠️ Error initializing OpenAI: {str(e)}")
 
     # Initialize chat history
     if "messages" not in st.session_state:
@@ -154,20 +167,33 @@ with st.sidebar:
             suggest contacting Gaspard at {EMAIL}."""
 
             try:
-                # Generate streaming response
-                stream = client.chat.completions.create(
-                    model="gpt-4o-mini",
-                    messages=[{"role": "system", "content": system_prompt}] + 
-                             [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
-                    stream=True,
-                )
-                
-                # Stream the response with typewriter effect
-                response = st.write_stream(stream)
+                # Check which client initialization method worked
+                if hasattr(openai, 'OpenAI') and client is not None:
+                    # New client (v1.0+)
+                    stream = client.chat.completions.create(
+                        model="gpt-4o-mini",
+                        messages=[{"role": "system", "content": system_prompt}] + 
+                                 [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
+                        stream=True,
+                    )
+                    
+                    # Stream the response with typewriter effect
+                    response = st.write_stream(stream)
+                else:
+                    # Legacy client (pre-v1.0)
+                    response = openai.ChatCompletion.create(
+                        model="gpt-4o-mini",
+                        messages=[{"role": "system", "content": system_prompt}] + 
+                                 [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
+                    )
+                    response = response.choices[0].message.content
+                    st.write(response)
                 
             except Exception as e:
                 response = f"Error: {str(e)}. Please contact Gaspard at {EMAIL}."
                 st.write(response)
+                # Print detailed error for debugging
+                st.error(f"Detailed error: {traceback.format_exc()}")
 
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
@@ -301,17 +327,17 @@ PAPERS = {
     "Hierarchical Reasoning Model": {
         "link": "https://arxiv.org/abs/2506.21734",
         "thoughts": """
-        The **Hierarchical Reasoning Model (HRM)** paper is one of the most intriguing pieces of research I’ve encountered lately. The idea of leveraging a brain-inspired architecture with two interconnected recurrent modules—one for high-level, abstract reasoning and another for detailed, rapid computations—feels like a significant departure from the current trend of scaling up transformer models. It’s refreshing to see RNNs making a comeback, especially with each cell incorporating transformer-based attention mechanisms.
+        The **Hierarchical Reasoning Model (HRM)** paper is one of the most intriguing pieces of research I've encountered lately. The idea of leveraging a brain-inspired architecture with two interconnected recurrent modules—one for high-level, abstract reasoning and another for detailed, rapid computations—feels like a significant departure from the current trend of scaling up transformer models. It's refreshing to see RNNs making a comeback, especially with each cell incorporating transformer-based attention mechanisms.
 
-        What stands out the most is how HRM achieves such strong performance with only **27 million parameters**, outperforming much larger models like o3 and Grok4 on the ARC-AGI benchmark. Its ability to solve complex Sudoku puzzles and navigate mazes perfectly—tasks where traditional LLMs often fail—is impressive. However, I do wonder if the benchmarks used are somewhat tailored to highlight HRM’s strengths, as real-world problems tend to be far more unstructured and open-ended.
+        What stands out the most is how HRM achieves such strong performance with only **27 million parameters**, outperforming much larger models like o3 and Grok4 on the ARC-AGI benchmark. Its ability to solve complex Sudoku puzzles and navigate mazes perfectly—tasks where traditional LLMs often fail—is impressive. However, I do wonder if the benchmarks used are somewhat tailored to highlight HRM's strengths, as real-world problems tend to be far more unstructured and open-ended.
 
-        Despite its strengths, HRM has notable limitations. The model’s non-autoregressive nature means it can only process fixed-size grids as input and output, making it less versatile for general-purpose tasks like text generation or open-ended reasoning. Additionally, the reliance on a token to specify the problem type within the input feels like a constraint that limits its applicability in more dynamic, real-world scenarios.
+        Despite its strengths, HRM has notable limitations. The model's non-autoregressive nature means it can only process fixed-size grids as input and output, making it less versatile for general-purpose tasks like text generation or open-ended reasoning. Additionally, the reliance on a token to specify the problem type within the input feels like a constraint that limits its applicability in more dynamic, real-world scenarios.
 
-        The **ARC Prize’s independent analysis** provided a more grounded perspective on HRM’s performance. While the model performs well on ARC-AGI-1, its accuracy plummets to just **2% on the more challenging ARC-AGI-2 benchmark**. This suggests that HRM’s reasoning capabilities may not generalize as well as initially thought. Furthermore, the analysis revealed that much of HRM’s success can be attributed to **iterative refinement** rather than the hierarchical architecture itself. In fact, a standard transformer with similar parameters can achieve comparable results, which is somewhat underwhelming given the initial hype.
+        The **ARC Prize's independent analysis** provided a more grounded perspective on HRM's performance. While the model performs well on ARC-AGI-1, its accuracy plummets to just **2% on the more challenging ARC-AGI-2 benchmark**. This suggests that HRM's reasoning capabilities may not generalize as well as initially thought. Furthermore, the analysis revealed that much of HRM's success can be attributed to **iterative refinement** rather than the hierarchical architecture itself. In fact, a standard transformer with similar parameters can achieve comparable results, which is somewhat underwhelming given the initial hype.
 
-        Another point of concern is HRM’s reliance on **puzzle_id embeddings**, which means it can’t generalize to new tasks it hasn’t encountered during training. This is a significant limitation if we’re considering HRM as a step toward AGI. Additionally, while the paper highlights the use of 1,000 augmentations per task, the analysis shows that similar performance can be achieved with just 30-300 augmentations, suggesting that some of the computational overhead might be unnecessary.
+        Another point of concern is HRM's reliance on **puzzle_id embeddings**, which means it can't generalize to new tasks it hasn't encountered during training. This is a significant limitation if we're considering HRM as a step toward AGI. Additionally, while the paper highlights the use of 1,000 augmentations per task, the analysis shows that similar performance can be achieved with just 30-300 augmentations, suggesting that some of the computational overhead might be unnecessary.
 
-        Overall, HRM is a fascinating development in AI research. It challenges the notion that bigger models are inherently better and introduces a compelling brain-inspired design. However, the critical analysis reveals that its performance gains may not be as revolutionary as initially claimed. It’s still an exciting direction, and I’m curious to see how this architecture evolves—perhaps in combination with other techniques like diffusion models—to address its current limitations.
+        Overall, HRM is a fascinating development in AI research. It challenges the notion that bigger models are inherently better and introduces a compelling brain-inspired design. However, the critical analysis reveals that its performance gains may not be as revolutionary as initially claimed. It's still an exciting direction, and I'm curious to see how this architecture evolves—perhaps in combination with other techniques like diffusion models—to address its current limitations.
         """
     },
      "Muon Clip Optimizer": {
